@@ -7,8 +7,8 @@ class testValorNegativo {
 	@Test
     public void valorNegativo() {
         ASumar sumi = new ASumar();
-        Integer resultado = sumi.sumar("-5");
-        assertEquals(null,resultado );
+        String resultado = sumi.mostrar("-5");
+        assertEquals("-5=null",resultado);
     }
 
 }

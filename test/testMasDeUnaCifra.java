@@ -7,8 +7,8 @@ class testMasDeUnaCifra {
 	@Test
     public void testMasDeUnaCifra() {
         ASumar sumi = new ASumar();
-        int resultado = sumi.sumar("13");
-        assertEquals(4,resultado);
+        String resultado = sumi.mostrar("13");
+        assertEquals("1+3=4",resultado);
     }
 
 }
