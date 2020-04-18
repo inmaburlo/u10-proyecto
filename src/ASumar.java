@@ -3,42 +3,31 @@ public class ASumar {
 
 	/**
 	 * Dado un número en formato String, devuelve una sentencia del tipo numero = numero,
-	 * si el número es de un solo digito o cadena vacia, si no lo es
+	 * si el número es de un solo digito o numero = null si el número en formato String es 
+	 * negativo cifra+cifra+..=resultado si el número en formato String tiene más de una cifra
 	 * @param cad
 	 * @return
 	 */
 	public String mostrar(String cad) {
+		int suma = 0;
 		String numero = cad;
-        if (numero.length() == 1) {
+		String resultado = "";
+        if (numero.length() == 1 && Integer.parseInt(cad) > 0) {
             return (numero + " = " + numero);
         } else {
-        	return "";
+        	int valor = Integer.parseInt(numero);
+    		if(valor < 0) {
+    			return numero + "=null";
+    		}else {
+    	        for (int i = 0; i < numero.length(); i++) {
+    	            String digito = numero.substring(i, i+1);
+    	            resultado += digito + "+";
+    	            suma = suma + Integer.parseInt(digito);
+    	        }
+    	        //quitamos el + de sobra de la cadena resultado
+    	        resultado = resultado.substring(0,resultado.length()-1);
+    	        return resultado + "=" + suma;
+    		}
         }
 	}
-
-	
-	/**
-	 * Dado un número, comprueba si es negativo. En ese caso, devuelve null (el valor esperado en el test)
-	 * en otro caso, recorre cada cifra (cada posicion del string) y convierte 
-	 * esa cifra en entero para ir acumulándolo en la variable suma, que al final acumulará la suma
-	 * de todos los dígitos. 
-	 * NOTA: al método se le ha puesto que devuelva un tipo Integer porque
-	 * permite devolver el valor null, el tipo primitivo int no lo permitía.
-	 * @param numero
-	 * @return
-	 */
-	public Integer sumar(String numero) {
-		int suma = 0;
-		int valor = Integer.parseInt(numero);
-		if(valor < 0) {
-			return null;
-		}else {
-	        for (int i = 0; i < numero.length(); i++) {
-	            String digito = numero.substring(i, i+1);
-	            suma = suma + Integer.parseInt(digito);
-	        }
-	        return suma;
-		}
-	}
-
 }
