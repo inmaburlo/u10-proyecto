@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 class testValorNegativo {
 
 	@Test
-	final void test() {
-		fail("Not yet implemented"); // TODO
-	}
+    public void valorNegativo() {
+        ASumar sumi = new ASumar();
+        Integer resultado = sumi.sumar("-5");
+        assertEquals(null,resultado );
+    }
 
 }
